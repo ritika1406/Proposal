@@ -31,18 +31,25 @@ body::before {
 .container {
   max-width: 700px;
   margin: auto;
-  padding: 60px 20px;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .step {
   display: none;
-  background: rgba(255,255,255,0.8);
-  border-radius: 20px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 22px;
   padding: 28px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.12);
   animation: fade 0.4s ease forwards;
   touch-action: pan-y;
+  width: 100%;
+  max-width: 520px;
 }
+
 
 .step.active {
   display: block;
