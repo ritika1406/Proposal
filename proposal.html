@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Vijay — From Ritika</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  background: linear-gradient(135deg, #ffe6ec, #ffc2d1);
+  color: #4b2b2b;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Soft heart background */
+body::before {
+  content: "❤️ 💕 ❤️ 💗 💖";
+  position: fixed;
+  font-size: 80px;
+  opacity: 0.08;
+  top: 10%;
+  left: 5%;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+.step {
+  display: none;
+  background: rgba(255,255,255,0.8);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  animation: fade 0.4s ease forwards;
+  touch-action: pan-y;
+}
+
+.step.active {
+  display: block;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+button {
+  margin-top: 22px;
+  padding: 14px 38px;
+  border-radius: 999px;
+  border: none;
+  background: #ff5f8f;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#noBtn {
+  background: #ddd;
+  color: #444;
+  position: relative;
+}
+
+.final {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.hiddenText {
+  display: none;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+.img {
+  width: 100%;
+  border-radius: 16px;
+  margin-top: 16px;
+}
+.confetti {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: #ff5f8f;
+  top: -10px;
+  border-radius: 50%;
+  animation: fall 2.5s linear forwards;
+  z-index: 9999;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="bgMusic" autoplay loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+<!-- STEP 1 -->
+<div class="step active">
+<h1>Hi Vi ❤️</h1>
+<p>This page exists because you exist in my life.</p>
+<p style="opacity:0.6; font-size:0.9rem;">Swipe to continue →</p>
+<button onclick=" startMusic(); nextStep()">This is for you</button>
+</div>
+
+<!-- STEP 2 -->
+<div class="step">
+<p>Hey. It's Mai !!! (Main hu, pehchan toh gye honge ab tak)</p>
+
+<button onclick="showtext()">Allow me to tell you something</button>
+
+<p id="hiddenMsg" class="hiddenText">
+You became one of my favorite people.
+<img class="img" src="img1.jpg">
+</p>
+
+<button onclick=" nextStep()">Next</button>
+</div>
+
+<!-- STEP 3 -->
+<div class="step">
+
+<div style="font-size:1.6rem; margin-bottom:8px;">💗 ✨ 💗</div>
+
+<p style="font-size:1.15rem; line-height:1.7;">
+The laughs.<br>  
+The chaos.<br>  
+The random talks.<br>  
+The comfort.<br>  
+<span style="font-weight:600;">All of it means more than you think.</span>
+</p>
+
+<h3>Cutiee :)</h3>
+
+<div style="width:70px; height:3px; background:#ff8fab; margin:16px auto; border-radius:8px;"></div>
+
+<button onclick="nextStep()">Agree</button>
+</div>
+
+<!-- STEP 4 -->
+<div class="step">
+
+<div style="font-size:1.6rem; margin-bottom:8px;">💞</div>
+
+<p style="font-size:1.15rem; line-height:1.7;">
+I tease you.<br>
+I annoy you.<br>
+<span style="font-weight:600;">But I also choose you — every day.</span>
+</p>
+
+<div style="font-size:0.9rem; opacity:0.6; margin-top:6px;">
+Not similar. Still perfect.
+</div>
+
+<button onclick="nextStep()">Samjhe Fattu</button>
+</div>
+
+<!-- STEP 5 -->
+<div class="step">
+
+<div style="font-size:1.6rem; margin-bottom:10px;">😏💗</div>
+
+<p class="final">Promise to handle my drama forever?</p>
+<p class="final">Will you allow me to annoy you forever?</p>
+<p class="final">Promise to stay stuck with me for life?</p>
+
+<div style="margin-top: 20px;">
+  <button onclick="accepted()">YES</button>
+  <button id="noBtn">NO</button>
+</div>
+
+<div style="font-size:0.9rem; opacity:0.6; margin-top:10px;">
+Already chosen. Still choosing.
+</div>
+
+</div>
+
+<!-- STEP 6 -->
+<div class="step">
+<p>
+Jokes aside — choosing you is easy.  
+I’m glad my forever looks like you ❤️
+</p>
+<button onclick="nextStep()">One last thing</button>
+</div>
+
+<!-- FINAL STEP -->
+<div class="step">
+<div style="font-size:2.4rem; margin-bottom:10px;">❤️</div>
+<h1>Love you always</h1>
+<p>
+No matter what.<br>
+No matter how.<br>
+Always you.
+</p>
+<p>From chaos to forever — always us.</p>
+</div>
+
+</div>
+
+<script>
+let currentStep = 0;
+const steps = document.querySelectorAll(".step");
+
+/* Reveal hidden message */
+function showtext() {
+  document.getElementById("hiddenMsg").style.display = "block";
+}
+
+/* Next Step */
+function nextStep() {
+  if (currentStep < steps.length - 1) {
+    steps[currentStep].classList.remove("active");
+    currentStep++;
+    steps[currentStep].classList.add("active");
+  }
+}
+
+/* Previous Step */
+function prevStep() {
+  if (currentStep > 0) {
+    steps[currentStep].classList.remove("active");
+    currentStep--;
+    steps[currentStep].classList.add("active");
+  }
+}
+
+/* YES Button */
+function accepted() {
+   
+  launchConfetti();
+  setTimeout(() => {
+    nextStep();
+  }, 1500);
+  alert("Lifetime contract accepted. April 25 confirmed ❤️");  
+ 
+  nextStep();
+ 
+}
+function launchConfetti() {
+  for (let i = 0; i < 60; i++) {
+    const confetti = document.createElement("div");
+    confetti.classList.add("confetti");
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.background = ["#ff5f8f", "#ffb3c6", "#ffd6e0", "#ff8fab"][Math.floor(Math.random() * 4)];
+    confetti.style.animationDuration = (Math.random() * 2 + 1.5) + "s";
+    document.body.appendChild(confetti);
+
+    setTimeout(() => confetti.remove(), 3000);
+  }
+}
+
+/* Floating NO Button */
+const noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseover", () => {
+  noBtn.style.transform =
+    `translate(${Math.random()*200-100}px, ${Math.random()*120-60}px)`;
+});
+
+/* Swipe Detection */
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", e => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  if (touchEndX < touchStartX - 50) nextStep(); 
+  if (touchEndX > touchStartX + 50) prevStep(); 
+}
+function startMusic() {
+  const music = document.getElementById("bgMusic");
+  music.play();
+}
+</script>
+
+</body>
+</html>
